@@ -1,14 +1,14 @@
 def caesar_cipher():
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    chaine = input("Que voulez-vous chiffrer ? ").lower()
-    décalage = int(input("Décalage ? "))
+    texte = input("Texte à chiffrer : ").lower()
+    decalage = int(input("Décalage : "))
     resultat = ""
-    for lettre in chaine:
-        if lettre in alphabet:
-            index = (alphabet.index(lettre) + décalage) % len(alphabet)
-            resultat += alphabet[index]
+
+    for c in texte:
+        if c.isalpha():
+            resultat += chr((ord(c) - ord('a') + decalage) % 26 + ord('a'))
         else:
-            resultat += lettre
+            resultat += c
+
     print("Texte chiffré :", resultat)
 
 caesar_cipher()
