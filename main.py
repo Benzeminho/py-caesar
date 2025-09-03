@@ -3,6 +3,7 @@ def caesar_cipher():
     decalage = int(input("Décalage : "))
     resultat = ""
 
+
     for c in texte:
         if c.isalpha():
             resultat += chr((ord(c) - ord('a') + decalage) % 26 + ord('a'))
@@ -11,7 +12,7 @@ def caesar_cipher():
 
     print("Texte chiffré :", resultat)
 
-caesar_cipher()
+
 
 # ord pour obtenir le code ASCII d'un caractère
 # chr pour convertir le code en lettre
@@ -29,4 +30,16 @@ def caesar_decipher():
 
     print("Texte déchiffré :", resultat)
 
-caesar_decipher()
+
+
+def main():
+    print("=== Chiffrement de César ===")
+    choix = input("Voulez-vous déchiffrer ? (o/n) : ").lower()
+    
+    if choix in ['o', 'oui', 'y', 'yes']:
+        caesar_decipher()
+    else:
+        caesar_cipher()
+
+
+main()
